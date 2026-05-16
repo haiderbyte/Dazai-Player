@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # تم التحديث إلى إصدار 22 ليتوافق مع متطلبات Capacitor الحديثة
+          node-version: 22
 
       - name: Clean and Install Dependencies
         run: |
@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '21' # تم التحديث إلى 21 ليتوافق مع إعدادات أندرويد في مشروعك
 
       - name: Initialize Android & Sync
         run: |
