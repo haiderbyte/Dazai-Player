@@ -1,28 +1,46 @@
 # Dazai Player
 
-مشغل موسيقى خفيف يعمل على الويب ويُحوَّل إلى تطبيق أندرويد عبر Capacitor. يمسح الملفات الصوتية من الجهاز، ويعرض المكتبة وشاشة الإحصائيات والإعدادات، ويحفظ البيانات في قاعدة محلية.
+مشغل موسيقى خفيف بواجهة عربية، يمسح الملفات الصوتية ويعرض المكتبة والإحصاءات والإعدادات. يحفظ فهرس المكتبة محليًا، ويمكن تغليفه كتطبيق Android عبر Capacitor.
 
-هذا المستودع فورك من مشروع `vfhghhfy/Dazai-Player`.
+هذا المستودع مبني على مشروع `vfhghhfy/Dazai-Player`.
 
----
+## المتطلبات
 
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+- Node.js 20 أو أحدث وnpm.
+- لبناء Android: Android Studio وAndroid SDK وJDK 17 أو أحدث.
 
-# Run and deploy your AI Studio app
+## التثبيت والتشغيل على الويب
 
-This contains everything you need to run your app locally.
+```bash
+git clone https://github.com/haiderbyte/Dazai-Player.git
+cd Dazai-Player
+npm install
+npm run dev
+```
 
-View your app in AI Studio: https://ai.studio/apps/a1a7aadd-83d1-4336-93e8-dbbbfd25a2bf
+افتح عنوان Vite المحلي الذي يظهر في الطرفية.
 
-## Run Locally
+## التحقق والبناء
 
-**Prerequisites:**  Node.js
+```bash
+npm run lint       # فحص TypeScript
+npm run build      # بناء نسخة الويب داخل dist/
+npm run preview    # معاينة نسخة الإنتاج
+```
 
+## إعداد Android
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+إذا لم يكن مجلد `android/` موجودًا، أضف مشروع Android مرة واحدة:
+
+```bash
+npm run cap:add
+```
+
+بعد ذلك ابنِ ملفات الويب وزامنها مع Android:
+
+```bash
+npm run build:android
+npx cap open android
+```
+
+أكمل بناء APK أو تشغيل التطبيق من Android Studio. لا يلزم مفتاح Gemini؛ تعليمات AI Studio القديمة لم تعد تخص هذا المشروع.
